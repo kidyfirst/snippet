@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./cryptojs.js"></script>
+<title>Midas JS SDK</title>
+</head>
+<body>
+<script type="text/javascript">
+	//AES加密
+	var encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse("thie is origin string"), CryptoJS.enc.Utf8.parse("123456789"), {
+		padding: CryptoJS.pad.ZeroPadding,
+		iv: CryptoJS.enc.Utf8.parse(aesKey),
+		mode: CryptoJS.mode.ECB
+	}).ciphertext.toString(CryptoJS.enc.Hex);
+</script>
+</body>
+</html>
