@@ -23,7 +23,7 @@ if exist %dest% call :EnsureDest dest %dest%
 
 xcopy /s /h /r /y /i "%~dpnx1-LockForMove" %dest%
 
-junction %1 %dest%
+move %1 %dest%
 
 rd /s /q "%~dpnx1-LockForMove"
 

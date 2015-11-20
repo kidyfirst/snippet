@@ -13,7 +13,7 @@ set dest="%iroot%%~nx1"
 
 if exist %dest% call :EnsureDest dest %dest%
 
-junction %dest% %1
+move %dest% %1
 
 echo Done!
 

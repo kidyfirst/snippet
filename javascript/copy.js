@@ -1,6 +1,3 @@
-/**
- * Created by timlv on 2015/10/29.
- */
 /*
 include copy function  you can search github:tapable
  */
