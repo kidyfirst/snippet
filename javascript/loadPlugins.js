@@ -17,8 +17,8 @@ function loadPlugins(exports, path, plugins) {
  loadPlugins
  var obj = {
  };
- loadPlugins(obj.",["pluginA","pluginB"]);
- loadPlugins(obj.dependences={}.",["pluginA","pluginB"]);
+ loadPlugins(obj,".",["pluginA","pluginB"]);
+ loadPlugins(obj.dependences={},".",["pluginA","pluginB"]);
  console.log(obj.pluginA);
  console.log(obj.dependences.pluginB);
  */
