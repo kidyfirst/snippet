@@ -113,7 +113,7 @@ function getExtend($fileName)
 function str_replace_once($needle, $replace, $haystack) { 
 // Looks for the first occurence of $needle in $haystack 
 // and replaces it with $replace. 
-$pos = strpos($haystack, $needle); 
+$pos = empty($needle)?false:strpos($haystack, $needle);
 if ($pos === false) { 
 return $haystack; 
 } 
