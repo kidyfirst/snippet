@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if [ ! -n "$1" ] ;then
     echo "you have not input a number!"
 else
