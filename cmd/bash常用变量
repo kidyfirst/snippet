@@ -1,0 +1,25 @@
+#!/bin/bash
+echo '$0: '$0
+echo "pwd: "`pwd`
+echo "============================="
+echo "scriptPath1: "$(cd `dirname $0`; pwd)
+echo "scriptPath2: "$(pwd)
+echo "scriptPath3: "$(dirname $(readlink -f $0))
+echo "scriptPath4: "$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+echo -n "scriptPath5: " && dirname $(readlink -f ${BASH_SOURCE[0]})
+
+
+# ~> shell/a.sh
+#$0: shell/a.sh
+#pwd: /home/Jun
+#=============================
+#scriptPath1: /home/Jun/shell
+#scriptPath2: /home/Jun
+#scriptPath3: /home/Jun/shell
+#scriptPath4: /home/Jun/shell
+#scriptPath5: /home/Jun/shell
+
+#root@jfht ~]# pathname=/usr/bin/sort; echo $(dirname $pathname) ${pathname%/*}
+#/usr/bin /usr/bin   截掉原变量
+#[root@jfht ~]# pathname=/usr/bin/; echo $(dirname $pathname) ${pathname%/*}
+#/usr /usr/bin   仅截掉原变量最后一个/

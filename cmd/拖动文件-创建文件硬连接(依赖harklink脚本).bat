@@ -6,26 +6,14 @@ set iroot=%cd%\
 
 if "%~d1"=="" goto :dragndrophere
 
-echo Moving: %~nx1
-echo From: %~dp1
-echo To: %iroot%
-
-echo.
-echo Locking %1
-
-ren %1 "%~nx1-LockForMove"
-
-if exist %1 goto LockFail
+echo Creating link: %~nx1
+echo Assigned to: %~dpnx1
 
 set dest="%iroot%%~nx1"
 
 if exist %dest% call :EnsureDest dest %dest%
 
-xcopy /s /h /r /y /i "%~dpnx1-LockForMove" %dest%
-
-move %1 %dest%
-
-rd /s /q "%~dpnx1-LockForMove"
+move %dest% %1
 
 echo Done!
 
@@ -34,11 +22,6 @@ echo Done!
 pause
 
 exit
-
-:LockFail
-echo Lock Failed!
-
-goto Exit
 
 :EnsureDest
 
@@ -58,6 +41,7 @@ goto :eof
 
 set /p input=Drag and Drop a Folder Here and Hit the Enter key:
 
-call clear %input%
+call hardlink %input%
 
 :end
+

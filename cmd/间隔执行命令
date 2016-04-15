@@ -1,0 +1,6 @@
+#!/bin/bash
+while true
+do
+ps -e -o 'pid,cpu,rss' | grep 16451 >> mem.log
+sleep 3
+done
